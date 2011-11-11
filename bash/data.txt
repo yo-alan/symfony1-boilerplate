@@ -1,0 +1,29 @@
+# script variable definitions
+
+# default online urls
+symfony_url="https://github.com/symfony/symfony1.git"
+propel_plugin_url="https://github.com/propelorm/sfPropelORMPlugin.git"
+phing_url="https://github.com/Xosofox/phing.git"
+propel_url="https://github.com/propelorm/Propel.git"
+mpPlugins_url_prefix="https://github.com/mppfiles"
+mpPlugins_url_suffix=".git"
+
+# example for offline usage
+symfony_url="file:///home/mpalacio/devel/y_mas/libs/symfony/ultima"
+propel_plugin_url="file:///home/mpalacio/devel/y_mas/libs/propel/sfPropelORMPlugin"
+phing_url="$propel_plugin_url/lib/vendor/phing"
+propel_url="$propel_plugin_url/lib/vendor/propel"
+mpPlugins_url_prefix="file:///home/mpalacio/devel/y_mas/libs/sf_plugins"
+mpPlugins_url_suffix=""
+
+
+# MORE VARIABLES
+
+# DB related (to be used with -d)
+#  db_host="localhost"
+#  db_name= [defaults for project name]
+#  db_user="root"
+#  db_pass=""
+
+# Extra mpPlugins (to be used with -m)
+#  mpExtraPlugins=(mpJSToolkitPlugin mpModernAdminThemePlugin mpModernMenuPlugin)
