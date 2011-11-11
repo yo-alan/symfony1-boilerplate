@@ -34,19 +34,25 @@ project_dir=${project_dir_unescaped//'/'/"\/"}
 clear
 
 # ...debug zone...beware! :P
-
-#echo $symfony_url
+#echo $project_name
 #echo $project_dir
 #exit
 
-# init sf project as git project
 title "Starting script!!"
-git init
 
-if ("$project_name" == "") then
+if [ -z "$project_name" ]
+then
   echo -n "Project name: "
   read project_name
+else
+  echo "ehh '$project_name'"
 fi
+
+mkdir ${project_name}
+cd ${project_name}
+
+# init sf project as git project
+git init
 
 title "Adding libraries"
 mkdir -p lib/vendor
@@ -65,6 +71,10 @@ touch log/BUMP
 # add latest Propel 1.x plugin as submodule
 cecho $ansi_blue "Adding Propel"
 git submodule add $propel_plugin_url plugins/sfPropelORMPlugin
+# oops... there is no git submodule init --recursive without update!
+cd plugins/sfPropelORMPlugin
+git submodule init
+cd ../..
 
 # add mpProjectPlugin
 cecho $ansi_blue "Adding  mpProjectPlugin"
@@ -144,4 +154,7 @@ git commit -m "Very first commit of this project"
 
 cecho $ansi_blue "All tasks completed!"
 
-title "You can now test your project at http://localhost/$project_name/frontend_dev.php"
+if [ "$apache_deploy" == "a" ]
+then
+  title "You can now test your project at http://localhost/$project_name/frontend_dev.php"
+fi
