@@ -9,12 +9,12 @@ mpPlugins_url_prefix="https://github.com/mppfiles"
 mpPlugins_url_suffix=".git"
 
 # example for offline usage
-symfony_url="file:///home/mpalacio/devel/y_mas/libs/symfony/ultima"
-#propel_plugin_url="file:///home/mpalacio/devel/y_mas/libs/propel/sfPropelORMPlugin"
+#symfony_url="file:///home/me/dev/libs/symfony/ultima"
+#propel_plugin_url="file:///home/me/dev/libs/propel/sfPropelORMPlugin"
 #phing_url="$propel_plugin_url/lib/vendor/phing"
 #propel_url="$propel_plugin_url/lib/vendor/propel"
-mpPlugins_url_prefix="file:///home/mpalacio/devel/y_mas/libs/sf_plugins"
-mpPlugins_url_suffix=""
+#mpPlugins_url_prefix="file:///home/me/dev/libs/sf_plugins"
+#mpPlugins_url_suffix=""
 
 
 # MORE VARIABLES
