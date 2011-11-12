@@ -48,8 +48,8 @@ else
   echo "ehh '$project_name'"
 fi
 
-mkdir ${project_name}
-cd ${project_name}
+mkdir ../../${project_name}
+cd ../../${project_name}
 
 # init sf project as git project
 git init
