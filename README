@@ -1,1 +1,9 @@
-docs coming soon! :)
+One-run script for symfony 1.x + sfPropelORMPlugin project generation!
+
+Instructions:
+
+- Download this package
+- rename bash/data.txt.dist to data.txt
+- modify it to your needs
+
+then cd to the bash/ folder, and run the script!
