@@ -106,9 +106,6 @@ then
   done
 fi
 
-cecho $ansi_blue "Publishing plugin assets..."
-./symfony plugin:publish-assets
-
 cecho $ansi_blue "Updating git submodules..."
 git submodule init
 
@@ -119,7 +116,8 @@ git submodule update --recursive
 
 cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
 cp plugins/mpProjectPlugin/config/gitignore_example.dist .gitignore
-cp config/databases.yml config/databases.yml.dist
+cp plugins/mpProjectPlugin/config/databases.yml.dist config/databases.yml.dist
+cp config/databases.yml.dist config/databases.yml
 cp plugins/mpProjectPlugin/config/schema.custom.yml config/schema.custom.yml
 cp plugins/mpProjectPlugin/apps/foo/config/settings.yml apps/frontend/config/settings.yml
 cp plugins/mpProjectPlugin/apps/foo/config/factories.yml apps/frontend/config/factories.yml
@@ -135,6 +133,10 @@ sed -i "s/'sfPropelPlugin'/'sfPropelORMPlugin', 'mpProjectPlugin'/g" config/Proj
 
 # project url: localhost/project_name => need to fix this file
 sed -i "s/#RewriteBase \//RewriteBase \/$project_name/g" web/.htaccess
+
+# ProjectConfiguration.class.php is ready, time to publish assets
+cecho $ansi_blue "Publishing plugin assets..."
+./symfony plugin:publish-assets
 
 # apache config
 cp plugins/mpProjectPlugin/config/apache_example.conf.dist plugins/mpProjectPlugin/config/apache_example.conf
