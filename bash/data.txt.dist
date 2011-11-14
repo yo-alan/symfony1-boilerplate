@@ -8,8 +8,8 @@ propel_url="https://github.com/propelorm/Propel.git"
 mpPlugins_url_prefix="https://github.com/mppfiles"
 mpPlugins_url_suffix=".git"
 
-# example for offline usage
-#symfony_url="file:///home/me/dev/libs/symfony/ultima"
+# example for offline/testing script usage
+#symfony_url="file:///home/me/dev/libs/symfony"
 #propel_plugin_url="file:///home/me/dev/libs/propel/sfPropelORMPlugin"
 #phing_url="$propel_plugin_url/lib/vendor/phing"
 #propel_url="$propel_plugin_url/lib/vendor/propel"
@@ -18,10 +18,11 @@ mpPlugins_url_suffix=".git"
 
 
 # MORE VARIABLES
+#project_name=my_project
 
 # DB related (to be used with -d)
 #  db_host="localhost"
-#  db_name= [defaults for project name]
+#  db_name=my_project
 #  db_user="root"
 #  db_pass=""
 
