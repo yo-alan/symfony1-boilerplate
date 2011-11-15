@@ -209,6 +209,8 @@ then
   ./symfony propel:build --all-classes
   sed -i "s/sfFormPropel/mpFormPropel/g" lib/form/BaseFormPropel.class.php
   sed -i "s/sfFormFilterPropel/mpFormFilterPropel/g" lib/filter/BaseFormFilterPropel.class.php
+  sed "s/  {/  { parent::setup();/g" lib/form/BaseFormPropel.class.php
+  sed "s/  {/  { parent::setup();/g" lib/filter/BaseFormFilterPropel.class.php
 fi
 
 git add .
