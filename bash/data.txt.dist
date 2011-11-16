@@ -2,19 +2,17 @@
 
 # default online urls
 symfony_url="https://github.com/symfony/symfony1.git"
-propel_plugin_url="https://github.com/propelorm/sfPropelORMPlugin.git"
+sfPropelORMPlugin_url="https://github.com/propelorm/sfPropelORMPlugin.git"
 phing_url="https://github.com/Xosofox/phing.git"
 propel_url="https://github.com/propelorm/Propel.git"
-mpPlugins_url_prefix="https://github.com/mppfiles"
-mpPlugins_url_suffix=".git"
+mpProjectPlugin_url="https://github.com/mppfiles/mpProjectPlugin.git"
 
 # example for offline/testing script usage
 #symfony_url="file:///home/me/dev/libs/symfony"
-#propel_plugin_url="file:///home/me/dev/libs/propel/sfPropelORMPlugin"
-#phing_url="$propel_plugin_url/lib/vendor/phing"
-#propel_url="$propel_plugin_url/lib/vendor/propel"
-#mpPlugins_url_prefix="file:///home/me/dev/libs/sf_plugins"
-#mpPlugins_url_suffix=""
+#sfPropelORMPlugin_url="file:///home/me/dev/libs/propel/sfPropelORMPlugin"
+#phing_url="$sfPropelORMPlugin_url/lib/vendor/phing"
+#propel_url="$sfPropelORMPlugin_url/lib/vendor/propel"
+#mpProjectPlugin_url="file:///home/me/dev/libs/sf_plugins/mpProjectPlugin"
 
 
 # MORE VARIABLES
@@ -25,6 +23,3 @@ mpPlugins_url_suffix=".git"
 #  db_name=my_project
 #  db_user="root"
 #  db_pass=""
-
-# Extra mpPlugins (to be used with -m)
-#  mpExtraPlugins=(mpJSToolkitPlugin mpModernAdminThemePlugin mpModernMenuPlugin)

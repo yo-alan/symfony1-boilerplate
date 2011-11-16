@@ -9,7 +9,7 @@ function title {
   cecho ${ansi_yellow} "============================================================"
 }
 
-while getopts "hadm" opt; do
+while getopts "had" opt; do
   case $opt in
     h)
       show_help=1
@@ -20,9 +20,6 @@ while getopts "hadm" opt; do
     d)
       database_config=1
       ;;
-    m)
-      extra_plugins=1
-      ;;
   esac
 done
 
@@ -30,12 +27,11 @@ if [ -n "$show_help" ]
 then
   cat <<EOF
   
-  Usage: ./sf_git_project.sh [-h] | [-a] [-d] [-m]
+  Usage: ./sf_git_project.sh [-h] | [-a] [-d]
 
   -h  show this help screen
   -a  perform an apache deployment of your app, doing a symlink on /etc/apache2/conf.d
   -d  configure database access (in order to build schema and model classes) (see data.txt)
-  -m  download "extra" mpPlugins (see data.txt)
   
 EOF
   exit
@@ -43,12 +39,6 @@ fi
 
 # starting...
 clear
-
-# ...debug zone...beware! :P
-#echo $project_dir
-#echo $apache_deploy
-#echo $database_config
-#exit
 
 title "Starting script!!"
 
@@ -81,7 +71,7 @@ touch log/BUMP
 
 # add latest Propel 1.x plugin as submodule
 cecho $ansi_blue "Adding Propel"
-git submodule add $propel_plugin_url plugins/sfPropelORMPlugin
+git submodule add $sfPropelORMPlugin_url plugins/sfPropelORMPlugin
 # oops... there is no git submodule init --recursive without update!
 
 cd plugins/sfPropelORMPlugin
@@ -93,18 +83,7 @@ cd ../..
 
 # add mpProjectPlugin
 cecho $ansi_blue "Adding  mpProjectPlugin"
-git submodule add ${mpPlugins_url_prefix}/mpProjectPlugin${mpPlugins_url_suffix} plugins/mpProjectPlugin
-
-if [ -n "$install_extra_plugins" ]
-then
-  # add my plugins on github
-  cecho $ansi_blue "Adding mpPlugins..."
-  
-  for plugin in ${mpExtraPlugins[@]}
-  do
-    git submodule add ${mpPlugins_url_prefix}/${plugin}${mpPlugins_url_suffix} plugins/${plugin}
-  done
-fi
+git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin
 
 cecho $ansi_blue "Updating git submodules..."
 git submodule init
@@ -209,8 +188,8 @@ then
   ./symfony propel:build --all-classes
   sed -i "s/sfFormPropel/mpFormPropel/g" lib/form/BaseFormPropel.class.php
   sed -i "s/sfFormFilterPropel/mpFormFilterPropel/g" lib/filter/BaseFormFilterPropel.class.php
-  sed "s/  {/  { parent::setup();/g" lib/form/BaseFormPropel.class.php
-  sed "s/  {/  { parent::setup();/g" lib/filter/BaseFormFilterPropel.class.php
+  sed -i "s/  {/  { parent::setup();/g" lib/form/BaseFormPropel.class.php
+  sed -i "s/  {/  { parent::setup();/g" lib/filter/BaseFormFilterPropel.class.php
 fi
 
 git add .
