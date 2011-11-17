@@ -49,3 +49,15 @@ This will perform these extra steps:
 - restart apache, and you can browse **http://localhost/your_project** right away!
 
 Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING project**!
+
+## TODO
+
+Make this script SO independent (ex. create a .bat file too)
+Move most of operations to a symfony Task on mpProjectPlugin.
+
+## Disclaimer/Caveats:
+
+- This script (and mpProjectPlugin) assumes 'spanish' culture by default.
+- This method fits perfectly for a rather specific workflow (mine) may not fit your needs.
+
+Forks are welcome!
