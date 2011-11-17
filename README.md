@@ -2,6 +2,12 @@
 
 *One-run script for symfony 1.x + sfPropelORMPlugin project generation!*
 
+**As of now, you will need:**
+
+- bash (for now, all I have is a Bash script)
+- a working git installation (needed to create the project and submodules)
+- for the -a option, an ubuntu/debian-like Apache installation (`/etc/apache2/conf.d`)...
+
 ## Instructions:
 
 - Clone this repo or download this package
@@ -52,8 +58,9 @@ Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING pr
 
 ## TODO
 
-Make this script SO independent (ex. create a .bat file too)
-Move most of operations to a symfony Task on mpProjectPlugin.
+- Create a .bat file to be used in Windows
+- Give more alternatives to apache deployments
+- Move most of operations to a symfony Task on mpProjectPlugin
 
 ## Disclaimer/Caveats:
 
