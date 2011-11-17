@@ -65,6 +65,6 @@ Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING pr
 ## Disclaimer/Caveats:
 
 - This script (and mpProjectPlugin) assumes 'spanish' culture by default.
-- This method fits perfectly for a rather specific workflow (mine) may not fit your needs.
+- This method fits perfectly for a rather specific workflow (mine) thus it may not fit your needs.
 
 Forks are welcome!
