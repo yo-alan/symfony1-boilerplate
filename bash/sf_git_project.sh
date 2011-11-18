@@ -93,6 +93,11 @@ git submodule init
 # lastly, updates all 2nd-level submodules (4ex. Propel ones)
 git submodule update --recursive
 
+# once Propel is installed, we need to checkout the last tag
+cd plugins/sfPropelORMPlugin/lib/vendor/propel
+git checkout tags/${propel_tag}
+cd ../../../../../
+
 cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
 cp plugins/mpProjectPlugin/config/gitignore_example.dist .gitignore
 cp plugins/mpProjectPlugin/config/databases.yml.dist config/databases.yml.dist
