@@ -17,7 +17,6 @@ mpProjectPlugin_url="https://github.com/mppfiles/mpProjectPlugin.git"
 
 # MORE VARIABLES
 #project_name=my_project
-#propel_tag="1.6.3"
 
 # DB related (to be used with -d)
 #  db_host="localhost"
