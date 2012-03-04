@@ -104,6 +104,10 @@ cp -r plugins/mpProjectPlugin/config/error config/
 cp -r plugins/mpProjectPlugin/apps/foo/i18n apps/frontend/
 cp plugins/mpProjectPlugin/apps/foo/templates/* apps/frontend/templates/
 cp plugins/mpProjectPlugin/config/unavailable.php config/unavailable.php
+cp plugins/mpProjectPlugin/lib/form/BaseFormPropel.class.php lib/form/
+mkdir -p lib/filter
+cp plugins/mpProjectPlugin/lib/filter/BaseFormFilterPropel.class.php lib/filter/
+
 
 sed -i "s/PROJECT_NAME/$project_name/g" apps/frontend/config/factories.yml
 sed -i "s/sfFormSymfony/mpForm/g" lib/form/BaseForm.class.php
