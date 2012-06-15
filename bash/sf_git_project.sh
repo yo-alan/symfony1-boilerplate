@@ -94,6 +94,7 @@ git submodule init
 git submodule update --recursive
 
 cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
+cp plugins/mpProjectPlugin/git_post_clone.sh .
 cp plugins/mpProjectPlugin/config/gitignore_example.dist .gitignore
 cp plugins/mpProjectPlugin/config/databases.yml.dist config/databases.yml.dist
 cp config/databases.yml.dist config/databases.yml
