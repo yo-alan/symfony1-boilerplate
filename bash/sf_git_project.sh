@@ -66,32 +66,19 @@ cecho $ansi_blue "** creating project $project_name..."
 
 php lib/vendor/symfony/data/bin/symfony generate:project --orm=propel $project_name
 ./symfony generate:app frontend --csrf-secret=whisky_tango_foxtrot
-touch cache/BUMP
-touch log/BUMP
+touch cache/.gitkeep
+touch log/.gitkeep
 
 # add latest Propel 1.x plugin as submodule
 cecho $ansi_blue "Adding Propel"
 git submodule add $sfPropelORMPlugin_url plugins/sfPropelORMPlugin
-# oops... there is no git submodule init --recursive without update!
-
-cd plugins/sfPropelORMPlugin
-
-# Replace git:// with the right URL to enable local usage or to avoid firewall issues
-git config submodule.lib/vendor/propel.url ${propel_url} lib/vendor/propel
-git config submodule.lib/vendor/phing.url ${phing_url} lib/vendor/phing
-cd ../..
 
 # add mpProjectPlugin
 cecho $ansi_blue "Adding  mpProjectPlugin"
 git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin
 
 cecho $ansi_blue "Updating git submodules..."
-git submodule init
-
-#sed -i "s/git\:\/\//https\:\/\//g" plugins/sfPropelORMPlugin/.git/config
-
-# lastly, updates all 2nd-level submodules (4ex. Propel ones)
-git submodule update --recursive
+git submodule update --init --recursive
 
 cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
 cp plugins/mpProjectPlugin/git_post_clone.sh .
