@@ -1,11 +1,11 @@
 # script variable definitions
 
 # default online urls
-symfony_url="git://github.com/symfony/symfony1.git"
-sfPropelORMPlugin_url="git://github.com/propelorm/sfPropelORMPlugin.git"
-phing_url="git://github.com/Xosofox/phing.git"
-propel_url="git://github.com/propelorm/Propel.git"
-mpProjectPlugin_url="git://github.com/mppfiles/mpProjectPlugin.git"
+symfony_url="https://github.com/symfony/symfony1.git"
+sfPropelORMPlugin_url="https://github.com/propelorm/sfPropelORMPlugin.git"
+phing_url="https://github.com/Xosofox/phing.git"
+propel_url="https://github.com/propelorm/Propel.git"
+mpProjectPlugin_url="https://github.com/mppfiles/mpProjectPlugin.git"
 
 # example for offline/testing script usage
 #symfony_url="file:///home/me/dev/libs/symfony"
