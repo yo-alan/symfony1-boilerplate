@@ -38,7 +38,7 @@ This will perform these tasks (at a glance):
 If you feel **really lazy**, and want a **fully automated installation** instead of the default one, just adjust the variables on your data.txt file, and run:
 
 ```bash
-./sf_git_project.sh -ad
+bin/generate.sh -ad
 ```
 
 This will perform these extra steps:
@@ -64,7 +64,6 @@ Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING pr
 
 ## Disclaimer/Caveats:
 
-- This script (and mpProjectPlugin) assumes 'spanish' culture by default.
 - This method fits perfectly for a rather specific workflow (mine) thus it may not fit your needs.
 
 Forks are welcome!
