@@ -14,10 +14,10 @@
 - make a copy of `bash/data.txt.dist` named `data.txt` on the same directory
 - modify `data.txt` to fit your needs
 
-then cd to the `bash/` folder, and run the script with:
+then just run:
 
 ```bash
-./sf_git_project.sh
+bin/generate.sh
 ```
 
 This will perform these tasks (at a glance):

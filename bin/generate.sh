@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. colors.txt
-. data.txt
+. bin/colors.txt
+. bin/data.txt
 
 function title {
   cecho ${ansi_yellow} "============================================================"
@@ -27,7 +27,7 @@ if [ -n "$show_help" ]
 then
   cat <<EOF
   
-  Usage: ./sf_git_project.sh [-h] | [-a] [-d]
+  Usage: bash/sf_git_project.sh [-h] | [-a] [-d]
 
   -h  show this help screen
   -a  perform an apache deployment of your app, doing a symlink on /etc/apache2/conf.d
@@ -48,8 +48,15 @@ then
   read project_name
 fi
 
-mkdir ../../${project_name}
-cd ../../${project_name}
+if [ -z "$base_path" ]
+then
+  echo "Base path [" ~ "]: "
+  read base_path
+  base_path=${base_path:-~}
+fi
+
+mkdir ${base_path}/${project_name}
+cd ${base_path}/${project_name}
 project_dir_unescaped=`pwd`
 project_dir=${project_dir_unescaped//'/'/"\/"}
 
