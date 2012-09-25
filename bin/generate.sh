@@ -112,6 +112,8 @@ cp plugins/mpProjectPlugin/lib/form/BaseFormPropel.class.php lib/form/
 mkdir -p lib/filter
 cp plugins/mpProjectPlugin/lib/filter/BaseFormFilterPropel.class.php lib/filter/
 
+# add useful scripts to bin/ directory
+cp -r plugins/mpProjectPlugin/bin .
 
 sed -i "s/PROJECT_NAME/$project_name/g" apps/frontend/config/factories.yml
 sed -i "s/sfFormSymfony/mpForm/g" lib/form/BaseForm.class.php
