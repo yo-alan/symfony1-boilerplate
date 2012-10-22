@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 . bin/colors.txt
 . bin/data.txt
 
