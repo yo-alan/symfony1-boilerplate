@@ -3,6 +3,12 @@
 set -e
 
 . bin/colors.txt
+
+if [ ! -f bin/data.txt ];
+then
+    cp bin/data.txt.dist bin/data.txt
+fi
+
 . bin/data.txt
 
 function title {
