@@ -97,8 +97,7 @@ cecho $ansi_blue "Adding mpProjectPlugin"
 git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin
 
 cecho $ansi_blue "Updating all submodules..."
-git submodule init
-git submodule update --recursive
+git submodule update --init --recursive
 
 cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
 cp plugins/mpProjectPlugin/config/gitignore_example.dist .gitignore
@@ -200,10 +199,8 @@ then
   ./symfony configure:database "mysql:host=${db_host};dbname=${db_name}" ${db_user} ${db_pass}
   ./symfony propel:build-schema
   ./symfony propel:build --all-classes
-  sed -i "s/sfFormPropel/mpFormPropel/g" lib/form/BaseFormPropel.class.php
-  sed -i "s/sfFormFilterPropel/mpFormFilterPropel/g" lib/filter/BaseFormFilterPropel.class.php
-  sed -i "s/  {/  { parent::setup();/g" lib/form/BaseFormPropel.class.php
-  sed -i "s/  {/  { parent::setup();/g" lib/filter/BaseFormFilterPropel.class.php
+  ./symfony cc
+
 fi
 
 git add .
