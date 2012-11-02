@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# abort on any error
 set -e
 
 . bin/colors.txt
@@ -88,16 +89,11 @@ touch log/.gitkeep
 cecho $ansi_blue "Adding Propel"
 git submodule add $sfPropelORMPlugin_url plugins/sfPropelORMPlugin
 
-# fixes in Propel nested submodules, setting HTTPS as default protocol
-cd plugins/sfPropelORMPlugin
-
-git config submodule.lib/vendor/propel.url ${propel_url} lib/vendor/propel
-git config submodule.lib/vendor/phing.url ${phing_url} lib/vendor/phing
-
-cd ../..
+# set HTTPS as default protocol to avoid firewall issues
+git config --global url."https://".insteadOf git://
 
 # add mpProjectPlugin
-cecho $ansi_blue "Adding  mpProjectPlugin"
+cecho $ansi_blue "Adding mpProjectPlugin"
 git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin
 
 cecho $ansi_blue "Updating all submodules..."
@@ -105,7 +101,6 @@ git submodule init
 git submodule update --recursive
 
 cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
-cp plugins/mpProjectPlugin/git_post_clone.sh .
 cp plugins/mpProjectPlugin/config/gitignore_example.dist .gitignore
 cp plugins/mpProjectPlugin/config/databases.yml.dist config/databases.yml.dist
 cp config/databases.yml.dist config/databases.yml
