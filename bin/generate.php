@@ -32,52 +32,48 @@ $project_dir = str_replace("/", "\/", $project_dir_unescaped);
 $res = null;
 
 # init sf project as git project
-system("git init", $res);
-if($res)
-  die("\nCannot 'git init' here for some reason.");
+system_call("git init");
 
 echoln("a\n\nAdding libraries");
 mkdir("lib/vendor", null, true) or die("Cannot create project lib/vendor directory.");
 
-system("git submodule add $symfony_url lib/vendor/symfony", $res);
-if($res)
-  die("Cannot add symfony as git submodule.");
+system_call("git submodule add $symfony_url lib/vendor/symfony");
 
-cecho $ansi_blue "** creating project $project_name..."
+echoln("** creating project $project_name...");
 
-php lib/vendor/symfony/data/bin/symfony generate:project --orm=propel $project_name
-./symfony generate:app frontend --csrf-secret=whisky_tango_foxtrot
-touch cache/.gitkeep
-touch log/.gitkeep
+system_call("php lib/vendor/symfony/data/bin/symfony generate:project --orm=propel $project_name");
+system_call("./symfony generate:app frontend --csrf-secret=whisky_tango_foxtrot");
+touch("cache/.gitkeep");
+touch("log/.gitkeep");
 
 # add latest Propel 1.x plugin as submodule
-cecho $ansi_blue "Adding Propel"
-git submodule add $sfPropelORMPlugin_url plugins/sfPropelORMPlugin
+echoln("Adding Propel");
+system_call("git submodule add $sfPropelORMPlugin_url plugins/sfPropelORMPlugin");
 
 # set HTTPS as default protocol to avoid firewall issues
-git config --global url."https://".insteadOf git://
+system_call("git config --global url.\"https://\".insteadOf git://");
 
 # add mpProjectPlugin
-cecho $ansi_blue "Adding mpProjectPlugin"
-git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin
+echoln("Adding mpProjectPlugin");
+system_call("git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin");
 
-cecho $ansi_blue "Updating all submodules..."
-git submodule update --init --recursive
+echoln("Updating all submodules...");
+system_call("git submodule update --init --recursive");
 
-cecho $ansi_blue "More filesystem tweaks from mpProjectPlugin..."
-cp plugins/mpProjectPlugin/config/gitignore_example.dist .gitignore
-cp plugins/mpProjectPlugin/config/databases.yml.dist config/databases.yml.dist
-cp config/databases.yml.dist config/databases.yml
-cp plugins/mpProjectPlugin/config/schema.custom.yml config/schema.custom.yml
-cp plugins/mpProjectPlugin/apps/foo/config/settings.yml apps/frontend/config/settings.yml
-cp plugins/mpProjectPlugin/apps/foo/config/factories.yml apps/frontend/config/factories.yml
-cp -r plugins/mpProjectPlugin/config/error config/
-cp -r plugins/mpProjectPlugin/apps/foo/i18n apps/frontend/
-cp plugins/mpProjectPlugin/apps/foo/templates/* apps/frontend/templates/
-cp plugins/mpProjectPlugin/config/unavailable.php config/unavailable.php
-cp plugins/mpProjectPlugin/lib/form/BaseFormPropel.class.php lib/form/
-mkdir -p lib/filter
-cp plugins/mpProjectPlugin/lib/filter/BaseFormFilterPropel.class.php lib/filter/
+echoln("More filesystem tweaks from mpProjectPlugin...");
+copy("plugins/mpProjectPlugin/config/gitignore_example.dist", ".gitignore");
+copy("plugins/mpProjectPlugin/config/databases.yml.dist", "config/databases.yml.dist");
+copy("config/databases.yml.dist", "config/databases.yml");
+copy("plugins/mpProjectPlugin/config/schema.custom.yml", "config/schema.custom.yml");
+copy("plugins/mpProjectPlugin/apps/foo/config/settings.yml", "apps/frontend/config/settings.yml");
+copy("plugins/mpProjectPlugin/apps/foo/config/factories.yml", "apps/frontend/config/factories.yml");
+copy("plugins/mpProjectPlugin/config/error", "config/");//-r???
+copy("plugins/mpProjectPlugin/apps/foo/i18n apps/frontend/"); //-r???
+copy("plugins/mpProjectPlugin/apps/foo/templates/*, apps/frontend/templates/");
+copy("plugins/mpProjectPlugin/config/unavailable.php", "config/unavailable.php");
+copy("plugins/mpProjectPlugin/lib/form/BaseFormPropel.class.php", "lib/form/");
+mkdir("lib/filter", null, true);
+copy("plugins/mpProjectPlugin/lib/filter/BaseFormFilterPropel.class.php", "lib/filter/");
 
 # add useful scripts to bin/ directory
 cp -r plugins/mpProjectPlugin/bin .
@@ -206,4 +202,11 @@ function read_from_keyboard($msg) {
 
 function echoln($msg) {
   echo $msg."\n";
+}
+
+function system_call($command)
+{
+  system("git init", $res);
+  if($res)
+    die("\nCannot perform command '$command' for some reason.");
 }
