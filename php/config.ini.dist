@@ -1,0 +1,10 @@
+[urls]
+  symfony             = "https://github.com/symfony/symfony1.git"
+  sfPropelORMPlugin   = "https://github.com/propelorm/sfPropelORMPlugin.git"
+  phing               = "https://github.com/phingofficial/phing.git"
+  propel              = "https://github.com/propelorm/Propel.git"
+  mpProjectPlugin     = "https://github.com/mppfiles/mpProjectPlugin.git"
+
+[misc]
+;project_name = my_project
+;base_path    = '~/devel/awesome_projects'

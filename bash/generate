@@ -3,14 +3,14 @@
 # abort on any error
 set -e
 
-. bin/colors.txt
+. bash/colors.txt
 
-if [ ! -f bin/data.txt ];
+if [ ! -f bash/config.txt ];
 then
-    cp bin/data.txt.dist bin/data.txt
+    cp bash/config.txt.dist bash/config.txt
 fi
 
-. bin/data.txt
+. bin/config.txt
 
 function title {
   cecho ${ansi_yellow} "============================================================"
@@ -26,9 +26,6 @@ while getopts "had" opt; do
     a)
       apache_deploy=1
       ;;
-    d)
-      database_config=1
-      ;;
   esac
 done
 
@@ -36,12 +33,11 @@ if [ -n "$show_help" ]
 then
   cat <<EOF
   
-  Usage: bash/sf_git_project.sh [-h] | [-a] [-d]
+  Usage: bash/generate [-h] | [-a]
 
   -h  show this help screen
   -a  perform an apache deployment of your app, doing a symlink on /etc/apache2/conf.d
-  -d  configure database access (in order to build schema and model classes) (see data.txt)
-  
+
 EOF
   exit
 fi
@@ -57,12 +53,7 @@ then
   read project_name
 fi
 
-if [ -z "$base_path" ]
-then
-  echo "Base path [" ~ "]: "
-  read base_path
-  base_path=${base_path:-~}
-fi
+base_path=${base_path:-~}
 
 mkdir ${base_path}/${project_name}
 cd ${base_path}/${project_name}
@@ -144,63 +135,6 @@ then
   
   sudo ln -s ${project_dir_unescaped}/plugins/mpProjectPlugin/config/apache_example.conf /etc/apache2/conf.d/${project_name}
   sudo service apache2 graceful
-fi
-
-# configure database and build model classes
-
-if [ -n "$database_config" ]
-then
-  cecho $ansi_blue "Configuring DB access"
-  
-  if [ -z "$db_host" ]
-  then
-    cecho $ansi_red "Database host [localhost]:"
-    read db_host
-    
-    if [ -z "$db_host" ]
-    then
-      db_host="localhost"
-    fi
-  fi
-  
-  if [ -z "$db_name" ]
-  then
-    cecho $ansi_red "Database name [$project_name]:"
-    read db_name
-    
-    if [ -z "$db_name" ]
-    then
-      db_name="$project_name"
-    fi
-  fi
-  
-  if [ -z "$db_user" ]
-  then
-    cecho $ansi_red "DB user [$project_name]:"
-    read db_user
-    
-    if [ -z "$db_user" ]
-    then
-      db_user="$project_name"
-    fi
-  fi
-  
-  if [ -z "$db_pass" ]
-  then
-    cecho $ansi_red "DB pass:"
-    read -s db_pass
-    
-    if [ -z "$db_pass" ]
-    then
-      db_pass=""
-    fi
-  fi
-  
-  ./symfony configure:database "mysql:host=${db_host};dbname=${db_name}" ${db_user} ${db_pass}
-  ./symfony propel:build-schema
-  ./symfony propel:build --all-classes
-  ./symfony cc
-
 fi
 
 git add .
