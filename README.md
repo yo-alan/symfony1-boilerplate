@@ -17,7 +17,12 @@
 then just run:
 
 ```bash
-bin/generate.sh
+bash/generate
+```
+
+or
+```bash
+php/generate
 ```
 
 This will perform these tasks (at a glance):
