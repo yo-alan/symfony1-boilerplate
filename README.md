@@ -42,7 +42,12 @@ This will perform these tasks (at a glance):
 If you feel **really lazy**, and want a **fully automated installation** instead of the default one, just adjust the variables on your data.txt file, and run:
 
 ```bash
-bin/generate.sh -a
+bash/generate -a
+```
+
+or
+```bash
+php/generate -a
 ```
 
 This will perform these extra steps:
