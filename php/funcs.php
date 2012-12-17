@@ -3,9 +3,10 @@
 /* start of functions */
 
 function console_has_option($opcion) {
-  if (!isset($argv))
-    return false;
-  return array_search($opcion, $argv);
+  global $argv;
+  array_shift($argv);
+  
+  return array_search($opcion, $argv) !== false;
 }
 
 function config_get_option($option) {
