@@ -10,7 +10,7 @@ then
     cp bash/config.txt.dist bash/config.txt
 fi
 
-. bin/config.txt
+. bash/config.txt
 
 function title {
   cecho ${ansi_yellow} "============================================================"
@@ -18,7 +18,7 @@ function title {
   cecho ${ansi_yellow} "============================================================"
 }
 
-while getopts "had" opt; do
+while getopts "ha" opt; do
   case $opt in
     h)
       show_help=1
