@@ -39,7 +39,7 @@ function copy_or_die($from, $to) {
 }
 
 function mkdir_or_die($dir) {
-  mkdir($dir, null, true) or die(sprintf("Can't create directory '%s' for some reason. Aborting.\n\n", $dir));
+  mkdir($dir, 0775, true) or die(sprintf("Can't create directory '%s' for some reason. Aborting.\n\n", $dir));
 }
 
 function replace_in_file($search, $replace, $file) {
