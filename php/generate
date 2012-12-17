@@ -4,9 +4,9 @@ require("funcs.php");
 $config_file_path = "php/config.ini";
 
 if(!file_exists($config_file_path))
-  copy_or_die($config_file_path.'.dist', $config_file_path) or die("Error creating config file.");
+  copy_or_die($config_file_path.'.dist', $config_file_path);
 
-$config = parse_ini_file($config_file_path, true) or die("Error loading config file.");
+$config = parse_ini_file($config_file_path, true) or die("Error loading config file. Aborting.\n\n");
 
 if(console_has_option("-a"))
   $do_apache_config = true;
@@ -19,12 +19,12 @@ if(!config_get_option("project_name"))
 $base_path = '..';
 
 if(file_exists("$base_path/$project_name"))
-  die("Directory '$base_path/$project_name' already exists");
+  die("Directory '$base_path/$project_name' already exists. Aborting.\n\n");
 
 mkdir_or_die("$base_path/$project_name");
 $project_dir = realpath("$base_path/$project_name");
 
-chdir($project_dir) or die("Can't change to new dir.");
+chdir($project_dir) or die("Can't change to new dir. Aborting.\n\n");
 
 # init sf project as git project
 system_call("git init");
@@ -38,8 +38,8 @@ echoln("** creating project $project_name...");
 
 system_call("php lib/vendor/symfony/data/bin/symfony generate:project --orm=propel $project_name");
 system_call("php symfony generate:app frontend --csrf-secret=whisky_tango_foxtrot");
-touch("cache/.gitkeep") or die("Can't create file: 'cache/.gitkeep' for some reason.");
-touch("log/.gitkeep") or die("Can't create file: 'log/.gitkeep' for some reason.");
+touch("cache/.gitkeep") or die("Can't create file: 'cache/.gitkeep' for some reason. Aborting.\n\n");
+touch("log/.gitkeep") or die("Can't create file: 'log/.gitkeep' for some reason. Aborting.\n\n");
 
 # add latest Propel 1.x plugin as submodule
 echoln("Adding Propel");

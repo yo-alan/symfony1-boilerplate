@@ -31,29 +31,29 @@ function echoln($msg) {
 function system_call($command) {
   system($command, $res);
   if ($res)
-    die("\nCannot perform command '$command' for some reason.");
+    die("\nCannot perform command '$command' for some reason. Aborting.\n\n");
 }
 
 function copy_or_die($from, $to) {
-  copy($from, $to) or die(sprintf("Can't copy '%s' to '%s' for some reason.", $from, $to));
+  copy($from, $to) or die(sprintf("Can't copy '%s' to '%s' for some reason. Aborting.\n\n", $from, $to));
 }
 
 function mkdir_or_die($dir) {
-  mkdir($dir, null, true) or die(sprintf("Can't create directory '%s' for some reason.", $dir));
+  mkdir($dir, null, true) or die(sprintf("Can't create directory '%s' for some reason. Aborting.\n\n", $dir));
 }
 
 function replace_in_file($search, $replace, $file) {
   $content = file_get_contents($file);
 
   if (!$content)
-    die("Cannot read file '" . $file . "' for processing.");
+    die("Cannot read file '" . $file . "' for processing. Aborting.\n\n");
 
   $content = str_replace($search, $replace, $content);
 
   $bytes = file_put_contents($file, $content);
 
   if (false === $bytes)
-    die("Cannot write to file '" . $file . "'");
+    die("Cannot write to file '" . $file . "'. Aborting.\n\n");
 }
 
 /**
