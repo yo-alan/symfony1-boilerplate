@@ -4,23 +4,25 @@
 
 **As of now, you will need:**
 
-- bash (for now, all I have is a Bash script)
+- A bash shell, or PHP cli.
 - a working git installation (needed to create the project and submodules)
 - for the -a option, an ubuntu/debian-like Apache installation (`/etc/apache2/conf.d`)...
 
 ## Instructions:
 
 - Clone this repo or download this package
-- if you need to, make a copy of `bash/data.txt.dist` named `data.txt` on the same directory, and modify it to fit your needs.
+- if you need to, make a copy of the config file (`bash/data.txt.dist`=> `data.txt` or php/config.ini.dist => config.ini), and modify it to fit your needs.
 
 then just run:
 
 ```bash
+# for bash version (linux, recommended)
 bash/generate
 ```
 
 or
 ```bash
+# for php version (windows)
 php/generate
 ```
 
@@ -33,8 +35,8 @@ This will perform these tasks (at a glance):
 - generate a project and a frontend app
 - download, configure and enable [sfPropelORMPlugin](https://github.com/propelorm/sfPropelORMPlugin) as a submodule.
   It also downloads phing and propel. There's no need to follow the plugin's README, this script performs all the required steps.
-- download and enable [mpProjectPlugin] (https://github.com/mppfiles/mpProjectPlugin) as a submodule
-- perform a lot of little tweaks to the project (most of them from symfony-check.org) using the mpProjectPlugin file templates
+- download and enable [mpProjectPlugin] (https://github.com/mppfiles/mpProjectPlugin) as a submodule.
+- perform a lot of little tweaks to the project (most of them from symfony-check.org) using the mpProjectPlugin file templates.
 - perform `plugin:publish-assets`
 
 ## But wait! there's more!
