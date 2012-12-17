@@ -55,7 +55,7 @@ php/generate -a
 This will perform these extra steps:
 
 - generate a sample apache configuration file (included in **mpProjectPlugin**)
-- symlink this file into `/etc/apache2/conf.d`
+- symlink this file into `/etc/apache2/conf.d` (sorry, only Ubuntu/Debian support for now)
 - restart apache, and you can browse **http://localhost/your_project** right away!
 
 Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING project**!
