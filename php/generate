@@ -23,8 +23,7 @@ if(file_exists("$base_path/$project_name"))
 
 mkdir_or_die("$base_path/$project_name");
 $project_dir = realpath("$base_path/$project_name");
-
-chdir($project_dir) or die("Can't change to new dir. Aborting.\n\n");
+chdir($project_dir) or die("Can't change to new dir: '".realpath("$base_path/$project_name")."'. Aborting.\n\n");
 
 # init sf project as git project
 system_call("git init");
