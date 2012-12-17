@@ -11,8 +11,7 @@
 ## Instructions:
 
 - Clone this repo or download this package
-- make a copy of `bash/data.txt.dist` named `data.txt` on the same directory
-- modify `data.txt` to fit your needs
+- if you need to, make a copy of `bash/data.txt.dist` named `data.txt` on the same directory, and modify it to fit your needs.
 
 then just run:
 
@@ -43,17 +42,10 @@ This will perform these tasks (at a glance):
 If you feel **really lazy**, and want a **fully automated installation** instead of the default one, just adjust the variables on your data.txt file, and run:
 
 ```bash
-bin/generate.sh -ad
+bin/generate.sh -a
 ```
 
 This will perform these extra steps:
-
-(from -d switch):
-
-- ask you (or read from `data.txt`) the database connection settings
-- perform `propel:build-schema` and `propel:build --all-classes`
-
-(from -a switch):
 
 - generate a sample apache configuration file (included in **mpProjectPlugin**)
 - symlink this file into `/etc/apache2/conf.d`
@@ -63,7 +55,6 @@ Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING pr
 
 ## TODO
 
-- Create a .bat file to be used in Windows
 - Give more alternatives to apache deployments
 - Move most of operations to a symfony Task on mpProjectPlugin
 
@@ -71,4 +62,4 @@ Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING pr
 
 - This method fits perfectly for a rather specific workflow (mine) thus it may not fit your needs.
 
-Forks are welcome!
+Forks and PRs are welcome!
