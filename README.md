@@ -11,7 +11,7 @@
 ## Instructions:
 
 - Clone this repo or download this package
-- if you need to, make a copy of the config file (`bash/data.txt.dist`=> `data.txt` or php/config.ini.dist => config.ini), and modify it to fit your needs.
+- if you need to, make a copy of the config file (`bash/config.txt.dist`=> `config.txt` or php/config.ini.dist => config.ini), and modify it to fit your needs.
 
 then just run:
 
