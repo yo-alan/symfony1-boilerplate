@@ -41,7 +41,7 @@ This will perform these tasks (at a glance):
 
 ## But wait! there's more!
 
-If you feel **really lazy**, and want a **fully automated installation** instead of the default one, just adjust the variables on your data.txt file, and run:
+If you feel **really lazy**, and want a **fully automated installation** instead of the default one, just add the -a switch:
 
 ```bash
 bash/generate -a
