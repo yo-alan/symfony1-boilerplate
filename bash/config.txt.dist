@@ -6,6 +6,7 @@ sfPropelORMPlugin_url="https://github.com/propelorm/sfPropelORMPlugin.git"
 phing_url="https://github.com/phingofficial/phing.git"
 propel_url="https://github.com/propelorm/Propel.git"
 mpProjectPlugin_url="https://github.com/mppfiles/mpProjectPlugin.git"
+sfTwitterBootstrapPlugin_url="https://github.com/real-chocopanda/sfTwitterBootstrapPlugin.git"
 
 # MORE VARIABLES
 #project_name=my_project

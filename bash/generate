@@ -55,7 +55,20 @@ fi
 
 base_path=${base_path:-~}
 
-mkdir ${base_path}/${project_name}
+if [ -d "${base_path}/${project_name}" ]; then
+  echo -n "Directory '${base_path}/${project_name}' already exists. Delete? [Y/n]: "  
+  read confirm
+
+  case $confirm in
+    "y" | "Y") rm -rf "${base_path}/${project_name}" ;;
+    "n" | "N")
+      echo "Aborted."
+      exit
+      ;;
+  esac 
+fi
+
+mkdir "${base_path}/${project_name}"
 cd ${base_path}/${project_name}
 project_dir_unescaped=`pwd`
 project_dir=${project_dir_unescaped//'/'/"\/"}
@@ -87,6 +100,10 @@ git config --global url."https://".insteadOf git://
 cecho $ansi_blue "Adding mpProjectPlugin"
 git submodule add ${mpProjectPlugin_url} plugins/mpProjectPlugin
 
+# add sfTwitterBootstrapPlugin
+cecho $ansi_blue "Adding sfTwitterBootstrapPlugin"
+git submodule add ${sfTwitterBootstrapPlugin_url} plugins/sfTwitterBootstrapPlugin
+
 cecho $ansi_blue "Updating all submodules..."
 git submodule update --init --recursive
 
@@ -109,10 +126,11 @@ cp plugins/mpProjectPlugin/lib/filter/BaseFormFilterPropel.class.php lib/filter/
 cp -r plugins/mpProjectPlugin/bin .
 
 sed -i "s/PROJECT_NAME/$project_name/g" apps/frontend/config/factories.yml
+sed -i "s/PROJECT_NAME/$project_name/g" config/databases.yml
 sed -i "s/sfFormSymfony/mpForm/g" lib/form/BaseForm.class.php
 sed -i "s/sfPropelPlugin/sfPropelORMPlugin/g" config/propel.ini
 sed -i "s/propel.addTimeStamp        = true/propel.addTimeStamp        = false/g" config/propel.ini
-sed -i "s/'sfPropelPlugin'/'sfPropelORMPlugin', 'mpProjectPlugin'/g" config/ProjectConfiguration.class.php
+sed -i "s/'sfPropelPlugin'/'sfPropelORMPlugin', 'mpProjectPlugin', 'sfTwitterBootstrapPlugin'/g" config/ProjectConfiguration.class.php
 
 # project url: localhost/project_name => need to fix this file
 sed -i "s/#RewriteBase \//RewriteBase \/$project_name/g" web/.htaccess
