@@ -19,7 +19,26 @@ if(!config_get_option("project_name"))
 $base_path = '..';
 
 if(file_exists("$base_path/$project_name"))
-  die("Directory '$base_path/$project_name' already exists. Aborting.\n\n");
+{
+  $confirm = read_from_keyboard("Directory '".realpath("$base_path/$project_name"). "' already exists. Delete? [Y/n]: "); 
+  
+  switch($confirm)
+  {
+    case "y":
+    case "Y":
+      //delete dir
+      deleter("$base_path/$project_name");
+    break;
+    case "n":
+    case "N":
+      die("Aborting.\n\n");
+    break;
+    default:
+      die("Invalid option. Aborting.\n\n");
+      break;
+  }
+}
+  
 
 mkdir_or_die("$base_path/$project_name");
 $project_dir = realpath("$base_path/$project_name");
@@ -51,6 +70,10 @@ system_call("git config --global url.\"https://\".insteadOf git://");
 echoln("Adding mpProjectPlugin");
 system_call("git submodule add ".$config['urls']['mpProjectPlugin']." plugins/mpProjectPlugin");
 
+# add mpProjectPlugin
+echoln("Adding sfTwitterBootstrapPlugin");
+system_call("git submodule add ".$config['urls']['sfTwitterBootstrapPlugin']." plugins/sfTwitterBootstrapPlugin");
+
 echoln("Updating all submodules...");
 system_call("git submodule update --init --recursive");
 
@@ -75,10 +98,11 @@ mkdir_or_die('bin');
 copyr("plugins/mpProjectPlugin/bin/", "bin/");
 
 replace_in_file("PROJECT_NAME", $project_name, "apps/frontend/config/factories.yml");
+replace_in_file("PROJECT_NAME", $project_name, "config/databases.yml");
 replace_in_file("sfFormSymfony", "mpForm", "lib/form/BaseForm.class.php");
 replace_in_file("sfPropelPlugin", "sfPropelORMPlugin", "config/propel.ini");
 replace_in_file("propel.addTimeStamp        = true", "propel.addTimeStamp        = false", "config/propel.ini");
-replace_in_file("'sfPropelPlugin'", "'sfPropelORMPlugin', 'mpProjectPlugin'", "config/ProjectConfiguration.class.php");
+replace_in_file("'sfPropelPlugin'", "'sfPropelORMPlugin', 'mpProjectPlugin', 'sfTwitterBootstrapPlugin'", "config/ProjectConfiguration.class.php");
 
 # project url: localhost/project_name => need to fix this file
 replace_in_file("#RewriteBase /", "RewriteBase /$project_name", "web/.htaccess");
