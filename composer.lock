@@ -1,5 +1,5 @@
 {
-    "hash": "1dc3edd5ae95c1b23e950dfb2693a6b6",
+    "hash": "eb02a0a8e807f820099ce078504ae248",
     "packages": [
         {
             "name": "composer/installers",
@@ -75,7 +75,7 @@
         },
         {
             "name": "mppfiles/mp-project-plugin",
-            "version": "dev-master",
+            "version": "v3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mppfiles/mpProjectPlugin.git",
