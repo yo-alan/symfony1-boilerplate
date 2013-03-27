@@ -61,11 +61,11 @@
     "scripts": {
         "post-install-cmd": [
             "php symfony cc",
-            "php symfony plugin:publish-assets",
+            "php symfony plugin:publish-assets"
         ],
         "post-update-cmd": [
             "php symfony cc",
-            "php symfony plugin:publish-assets",
+            "php symfony plugin:publish-assets"
         ]
-    },
+    }
 }
