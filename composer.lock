@@ -1,0 +1,307 @@
+{
+    "hash": "1dc3edd5ae95c1b23e950dfb2693a6b6",
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "v1.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/v1.0.3",
+                "reference": "v1.0.3",
+                "shasum": ""
+            },
+            "replace": {
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "TYPO3 Flow",
+                "TYPO3 Neos",
+                "agl",
+                "cakephp",
+                "codeigniter",
+                "drupal",
+                "fuelphp",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "li3",
+                "lithium",
+                "mako",
+                "phpbb",
+                "ppi",
+                "silverstripe",
+                "symfony",
+                "wordpress",
+                "yii",
+                "zend"
+            ],
+            "time": "2013-03-02 22:45:58"
+        },
+        {
+            "name": "mppfiles/mp-project-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mppfiles/mpProjectPlugin.git",
+                "reference": "edaa2c9c41eb6a5d3ea58eceab40db68f2896c9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mppfiles/mpProjectPlugin/zipball/edaa2c9c41eb6a5d3ea58eceab40db68f2896c9f",
+                "reference": "edaa2c9c41eb6a5d3ea58eceab40db68f2896c9f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*"
+            },
+            "type": "symfony1-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mppfiles",
+                    "email": "mppfiles@gmail.com"
+                }
+            ],
+            "description": "A base plugin for symfony 1.x projects",
+            "time": "2013-03-26 13:17:51"
+        },
+        {
+            "name": "phing/phing",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phingofficial/phing.git",
+                "reference": "2.5.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/2.5.0",
+                "reference": "2.5.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "bin": [
+                "bin/phing"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "classes/phing/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "classes"
+            ],
+            "license": [
+                "LGPL3"
+            ],
+            "authors": [
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
+                },
+                {
+                    "name": "Phing Community",
+                    "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
+                }
+            ],
+            "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
+            "homepage": "http://www.phing.info/",
+            "keywords": [
+                "build",
+                "task",
+                "tool"
+            ],
+            "time": "2013-02-16 14:23:57"
+        },
+        {
+            "name": "propel/propel1",
+            "version": "1.6.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/propelorm/Propel.git",
+                "reference": "a73f19f38ff2d50de195ba1431658fef1422d346"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/propelorm/Propel/zipball/a73f19f38ff2d50de195ba1431658fef1422d346",
+                "reference": "a73f19f38ff2d50de195ba1431658fef1422d346",
+                "shasum": ""
+            },
+            "require": {
+                "phing/phing": ">=2.4,<3.0",
+                "php": ">=5.2.4"
+            },
+            "bin": [
+                "generator/bin/propel-gen",
+                "generator/bin/propel-gen.bat"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "runtime/lib",
+                    "generator/lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "runtime/lib",
+                "generator/lib"
+            ],
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "Propel is an open-source Object-Relational Mapping (ORM) for PHP5.",
+            "homepage": "http://www.propelorm.org/",
+            "keywords": [
+                "Active Record",
+                "database",
+                "mapping",
+                "orm",
+                "persistence"
+            ],
+            "time": "2013-03-20 15:59:29"
+        },
+        {
+            "name": "propel/sf-propel-o-r-m-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/propelorm/sfPropelORMPlugin.git",
+                "reference": "9c8c208963c5c536a6b316c6bda8560a04322d9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/propelorm/sfPropelORMPlugin/zipball/9c8c208963c5c536a6b316c6bda8560a04322d9a",
+                "reference": "9c8c208963c5c536a6b316c6bda8560a04322d9a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "propel/propel1": "1.6.*"
+            },
+            "type": "symfony1-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "symfony 1.x plugin for Propel.",
+            "homepage": "http://www.propelorm.org/",
+            "keywords": [
+                "Active Record",
+                "database",
+                "mapping",
+                "orm",
+                "persistence",
+                "propel",
+                "symfony"
+            ],
+            "time": "2013-03-04 22:14:04"
+        },
+        {
+            "name": "real-chocopanda/sf-twitter-bootstrap-plugin",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/real-chocopanda/sfTwitterBootstrapPlugin",
+                "reference": "origin/master"
+            },
+            "require": {
+                "composer/installers": "*"
+            },
+            "type": "symfony1-plugin"
+        },
+        {
+            "name": "symfony/symfony1",
+            "version": "1.4.20",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/symfony/symfony1.git",
+                "reference": "tags/v1.4.20"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "http://pear.symfony-project.com/get/symfony-1.4.20.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "bin": [
+                "symfony-1.4.20/data/bin/symfony",
+                "symfony-1.4.20/data/bin/symfony.bat"
+            ],
+            "type": "library"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "propel/sf-propel-o-r-m-plugin": 20
+    },
+    "platform": {
+        "php": ">=5.3.2"
+    },
+    "platform-dev": [
+
+    ]
+}
