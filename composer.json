@@ -56,17 +56,5 @@
         "mppfiles/mp-project-plugin": "*",
         "real-chocopanda/sf-twitter-bootstrap-plugin": "*"
     },
-    "minimum-stability": "dev",
-    
-    "scripts": {
-        "post-install-cmd": [
-            "php bin/generate",
-            "php symfony cc",
-            "php symfony plugin:publish-assets"
-        ],
-        "post-update-cmd": [
-            "php symfony cc",
-            "php symfony plugin:publish-assets"
-        ]
-    }
+    "minimum-stability": "dev"
 }
