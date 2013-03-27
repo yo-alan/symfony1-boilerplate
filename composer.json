@@ -60,6 +60,7 @@
     
     "scripts": {
         "post-install-cmd": [
+            "php bin/generate",
             "php symfony cc",
             "php symfony plugin:publish-assets"
         ],

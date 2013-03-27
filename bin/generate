@@ -42,7 +42,8 @@ replace_in_file("sfFormSymfony", "mpForm", "lib/form/BaseForm.class.php");
 replace_in_file("sfPropelPlugin", "sfPropelORMPlugin", "config/propel.ini");
 replace_in_file("propel.addTimeStamp        = true", "propel.addTimeStamp        = false", "config/propel.ini");
 replace_in_file("'sfPropelPlugin'", "'sfPropelORMPlugin', 'mpProjectPlugin', 'sfTwitterBootstrapPlugin'", "config/ProjectConfiguration.class.php");
-
+replace_in_file("  }", "  sfConfig::set('sf_phing_path', sfConfig::get('sf_lib_dir') .'/vendor/phing/phing');\n  }", "config/ProjectConfiguration.class.php");
+replace_in_file("  }", "  sfConfig::set('sf_propel_path', sfConfig::get('sf_lib_dir') .'/vendor/propel/propel1');\n  }", "config/ProjectConfiguration.class.php");
 # ProjectConfiguration.class.php is ready, time to publish assets
 echoln("Publishing plugin assets...");
 system_call("php symfony plugin:publish-assets");
