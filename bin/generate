@@ -21,6 +21,7 @@ touch("log/.gitkeep") or die("Can't create file: 'log/.gitkeep' for some reason.
 # set HTTPS as default protocol to avoid firewall issues
 system_call("git config --global url.\"https://\".insteadOf git://");
 
+# copy base files from plugin
 copy_or_die("plugins/mpProjectPlugin/config/gitignore_example.dist", ".gitignore");
 copy_or_die("plugins/mpProjectPlugin/config/databases.yml.dist", "config/databases.yml.dist");
 copy_or_die("config/databases.yml.dist", "config/databases.yml");
@@ -36,6 +37,7 @@ copy_or_die("plugins/mpProjectPlugin/lib/form/BaseFormPropel.class.php", "lib/fo
 mkdir_or_die("lib/filter");
 copy_or_die("plugins/mpProjectPlugin/lib/filter/BaseFormFilterPropel.class.php", "lib/filter/BaseFormFilterPropel.class.php");
 
+# update base files
 replace_in_file("PROJECT_NAME", $project_name, "apps/frontend/config/factories.yml");
 replace_in_file("PROJECT_NAME", $project_name, "config/databases.yml");
 replace_in_file("sfFormSymfony", "mpForm", "lib/form/BaseForm.class.php");
@@ -44,7 +46,9 @@ replace_in_file("propel.addTimeStamp        = true", "propel.addTimeStamp       
 replace_in_file("'sfPropelPlugin'", "'sfPropelORMPlugin', 'mpProjectPlugin', 'sfTwitterBootstrapPlugin'", "config/ProjectConfiguration.class.php");
 replace_in_file("  }", "  sfConfig::set('sf_phing_path', sfConfig::get('sf_lib_dir') .'/vendor/phing/phing');\n  }", "config/ProjectConfiguration.class.php");
 replace_in_file("  }", "  sfConfig::set('sf_propel_path', sfConfig::get('sf_lib_dir') .'/vendor/propel/propel1');\n  }", "config/ProjectConfiguration.class.php");
+
 # ProjectConfiguration.class.php is ready, time to publish assets
+copyr("lib/vendor/symfony/symfony1/symfony-1.4.20/data/web/sf", "web/sf");
 echoln("Publishing plugin assets...");
 system_call("php symfony plugin:publish-assets");
 
