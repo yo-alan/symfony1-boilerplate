@@ -53,7 +53,7 @@
         "php": ">=5.3.2",
         "symfony/symfony1": "1.4.20",
         "propel/sf-propel-o-r-m-plugin": "dev-master",
-        "mppfiles/mp-project-plugin": "v3.0",
+        "mppfiles/mp-project-plugin": ">=v3.0",
         "real-chocopanda/sf-twitter-bootstrap-plugin": "1.0"
     },
     "minimum-stability": "dev"

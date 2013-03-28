@@ -21,9 +21,10 @@
 composer create-project mppfiles/symfony1-boilerplate {install_path} dev-master
 ```
 
-* Then, just call the boilerplate generation script:
+* Then, just get into the new directory and call the boilerplate generation script:
 
 ```
+cd {install_path}
 php bin/generate
 ```
 

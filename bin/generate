@@ -28,6 +28,8 @@ copy_or_die("config/databases.yml.dist", "config/databases.yml");
 copy_or_die("plugins/mpProjectPlugin/config/schema.custom.yml", "config/schema.custom.yml");
 copy_or_die("plugins/mpProjectPlugin/apps/foo/config/settings.yml", "apps/frontend/config/settings.yml");
 copy_or_die("plugins/mpProjectPlugin/apps/foo/config/factories.yml", "apps/frontend/config/factories.yml");
+@unlink("lib/vendor/propel/propel1/generator/build-propel.xml");
+copy_or_die("plugins/mpProjectPlugin/config/build-propel.xml", "lib/vendor/propel/propel1/generator/build-propel.xml");
 mkdir_or_die('config/error', null, true);
 copyr("plugins/mpProjectPlugin/config/error", "config/error");
 copyr("plugins/mpProjectPlugin/apps/foo/i18n", "apps/frontend/");

@@ -1,5 +1,5 @@
 {
-    "hash": "eb02a0a8e807f820099ce078504ae248",
+    "hash": "7f59d25a5809bed22bb6b0223d2199c7",
     "packages": [
         {
             "name": "composer/installers",
@@ -75,7 +75,7 @@
         },
         {
             "name": "mppfiles/mp-project-plugin",
-            "version": "v3.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mppfiles/mpProjectPlugin.git",
@@ -102,7 +102,7 @@
                 }
             ],
             "description": "A base plugin for symfony 1.x projects",
-            "time": "2013-03-27 12:58:52"
+            "time": "2013-03-28 21:44:30"
         },
         {
             "name": "phing/phing",
