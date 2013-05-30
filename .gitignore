@@ -1,7 +1,10 @@
 /nbproject
-/bash/config.txt
-/php/config.ini
 /.project
-/vendor/
 /lib/vendor/
 /plugins/
+cache/*
+log/*
+web/uploads/*
+config/databases.yml
+data/sql/*
+web/*Plugin
