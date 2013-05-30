@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7f59d25a5809bed22bb6b0223d2199c7",
+    "hash": "4a7be067ced6afb5774ca5025c8ce0c4",
     "packages": [
         {
             "name": "composer/installers",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "48a6227dfac4e51233a2fae5d5085db9655209f0"
+                "reference": "3e3c4ace757bd7b9d11b9dc6b7fd2f4ef57dc8c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/48a6227dfac4e51233a2fae5d5085db9655209f0",
-                "reference": "48a6227dfac4e51233a2fae5d5085db9655209f0",
+                "url": "https://api.github.com/repos/composer/installers/zipball/3e3c4ace757bd7b9d11b9dc6b7fd2f4ef57dc8c1",
+                "reference": "3e3c4ace757bd7b9d11b9dc6b7fd2f4ef57dc8c1",
                 "shasum": ""
             },
             "replace": {
@@ -74,38 +74,7 @@
                 "wordpress",
                 "zend"
             ],
-            "time": "2013-05-07 19:50:30"
-        },
-        {
-            "name": "mppfiles/mp-project-plugin",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mppfiles/mpProjectPlugin.git",
-                "reference": "8cf87cf3db553e3c46faeb2ac9853f1d79d45e8e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mppfiles/mpProjectPlugin/zipball/8cf87cf3db553e3c46faeb2ac9853f1d79d45e8e",
-                "reference": "8cf87cf3db553e3c46faeb2ac9853f1d79d45e8e",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "*"
-            },
-            "type": "symfony1-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "mppfiles",
-                    "email": "mppfiles@gmail.com"
-                }
-            ],
-            "description": "A base plugin for symfony 1.x projects",
-            "time": "2013-04-10 22:24:19"
+            "time": "2013-05-25 02:21:36"
         },
         {
             "name": "phing/phing",
@@ -256,19 +225,6 @@
                 "symfony"
             ],
             "time": "2013-05-14 15:18:32"
-        },
-        {
-            "name": "real-chocopanda/sf-twitter-bootstrap-plugin",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/real-chocopanda/sfTwitterBootstrapPlugin",
-                "reference": "origin/master"
-            },
-            "require": {
-                "composer/installers": "*"
-            },
-            "type": "symfony1-plugin"
         },
         {
             "name": "symfony/symfony1",

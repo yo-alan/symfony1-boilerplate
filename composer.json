@@ -30,31 +30,12 @@
                 },
                 "bin": ["symfony-1.4.20/data/bin/symfony", "symfony-1.4.20/data/bin/symfony.bat"]
             }
-        },
-        {
-            "type": "package",
-            "package": {
-              "name": "real-chocopanda/sf-twitter-bootstrap-plugin",
-              "type": "symfony1-plugin",
-              "version": "1.0",
-              "source": {
-                  "url": "https://github.com/real-chocopanda/sfTwitterBootstrapPlugin",
-                  "type": "git",
-                  "reference": "origin/master"
-              },
-              "require": {
-                  "composer/installers": "*"
-              }
-            }
         }
-
     ],
     "require": {
         "php": ">=5.3.2",
         "symfony/symfony1": "1.4.20",
-        "propel/sf-propel-o-r-m-plugin": "dev-master",
-        "mppfiles/mp-project-plugin": ">=v3.0",
-        "real-chocopanda/sf-twitter-bootstrap-plugin": "1.0"
+        "propel/sf-propel-o-r-m-plugin": "dev-master"
     },
     "minimum-stability": "dev"
 }
