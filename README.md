@@ -8,7 +8,7 @@
 * Using Composer to resolve and download dependencies,
 * Generation via php script only (no bash), no more need of config files
 * Windows compatibility improved! (see previous),
-* There's no more apache setup: Just create/move your project to your Document Root and you're done!. (Note: may not be suitable for production environments).
+* There's no more apache setup, but it's easier to deploy your project (see below)
 
 **As of now, you will need:**
 
@@ -27,11 +27,18 @@ composer create-project mppfiles/symfony1-boilerplate {install_path} dev-master
 
 ```
 cd {install_path}
-php bin/generate
+php script/generate
 ```
 
 * Give a project name, and if you wish answer 'Y' when promting for remove the existing VCS history.
-* Finally, move the project to your Server Document Root (ex. /var/www/myproject) and point your browser to `http://localhost/myproject/web/frontend_dev.php`
+* Deploy your project. The easiest way might be to just symlink your web directory from your Apache Document Root. For example:
+
+```
+sudo ln -s `pwd`/web /var/www/myproject
+```
+
+* Point your browser to `http://localhost/myproject/web/frontend_dev.php`
+* Enjoy!
 
 Conclusion: start with **nothing**, end with a **FULLY configured AND RUNNING project**!
 

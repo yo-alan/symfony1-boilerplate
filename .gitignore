@@ -8,3 +8,4 @@ web/uploads/*
 config/databases.yml
 data/sql/*
 web/*Plugin
+/bin/
