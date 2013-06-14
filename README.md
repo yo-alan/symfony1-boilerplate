@@ -20,7 +20,7 @@
 * Prepare the boilerplate and download the dependencies:
 
 ```
-composer create-project mppfiles/symfony1-boilerplate {install_path} dev-master
+composer create-project mppfiles/symfony1-boilerplate {install_path}
 ```
 
 * Then, just get into the new directory and call the boilerplate generation script:
