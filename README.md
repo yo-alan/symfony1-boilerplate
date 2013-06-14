@@ -2,9 +2,9 @@
 
 *One-run script for symfony 1.x + sfPropelORMPlugin project generation!*
 
-## Latest version: v4.0.1
+## Latest version: v5.0
 
-## New in version 4.0:
+## New from version 4.0:
 * Using Composer to resolve and download dependencies,
 * Generation via php script only (no bash), no more need of config files
 * Windows compatibility improved! (see previous),
