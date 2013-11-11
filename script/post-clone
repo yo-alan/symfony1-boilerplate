@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+require("funcs.php");
+
+echoln("Starting script!!");
+system_call("composer install");
+
+mkdir_or_die('log');
+mkdir_or_die('cache');
+copy_or_die("config/databases.yml.dist", "config/databases.yml");
+
+system_call("php symfony project:permissions");
+system_call("php symfony plugin:publish-assets");
