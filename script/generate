@@ -29,7 +29,7 @@ copy_or_die("src/file_templates/apps/foo/config/factories.yml", "apps/frontend/c
 @unlink("lib/vendor/propel/propel1/generator/build-propel.xml");
 copy_or_die("src/file_templates/config/build-propel.xml", "lib/vendor/propel/propel1/generator/build-propel.xml");
 mkdir_or_die('config/error', null, true);
-copyr("src/file_templates/apps/foo/i18n", "apps/frontend/");
+copyr("src/file_templates/apps/foo/i18n", "apps/frontend/i18n");
 
 # update base files
 replace_in_file("PROJECT_NAME", $project_name, "apps/frontend/config/factories.yml");
